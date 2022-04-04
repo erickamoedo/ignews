@@ -1,28 +1,33 @@
-import Document,  { Html, Head, Main, NextScript} from "next/document"
-
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 // No arquivo _document.tsx você não coloca essa propriedade title, você apenas usaria o next/head em páginas da sua aplicação (nunca nos arquivos _app.tsx ou _document.tsx).
-// Então o next/head você vai usar para colocar o title em cada página individualmente, não no _document.tsx 
+// Então o next/head você vai usar para colocar o title em cada página individualmente, não no _document.tsx
 // Aqui as coisas vão ser carregada uma unica vez, já no app.tsx, sempre sera recarregado.
 
 export default class MyDocument extends Document {
+  render() {
+    return (
+      <Html>
+        <Head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
+            rel="stylesheet"
+          />
 
-render() {
-return(
+          <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        </Head>
 
-        <Html>
-            <Head> 
-                <link rel="preconnect" href="https://fonts.googleapis.com" />                
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-                <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />                
-            </Head>         
-            
-                <body>
-                    <Main />
-                    <NextScript />
-                </body>
-        </Html>    
-) 
-
-}
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
 }
